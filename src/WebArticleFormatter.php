@@ -2,10 +2,6 @@
 
 namespace DivineOmega\WebArticleFormatter;
 
-use DivineOmega\WebArticleFormatter\ArticleParts\Paragraph;
-use DivineOmega\WebArticleFormatter\ArticleParts\Heading;
-
-
 class WebArticleFormatter
 {
     private $article;
@@ -19,5 +15,4 @@ class WebArticleFormatter
     {
         return $this->article->format($format);
     }
-
 }
