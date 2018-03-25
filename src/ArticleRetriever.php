@@ -2,9 +2,9 @@
 
 namespace DivineOmega\WebArticleFormatter;
 
-use GuzzleHttp\Client;
-use DivineOmega\WebArticleFormatter\ArticleParts\Paragraph;
 use DivineOmega\WebArticleFormatter\ArticleParts\Heading;
+use DivineOmega\WebArticleFormatter\ArticleParts\Paragraph;
+use GuzzleHttp\Client;
 
 class ArticleRetriever
 {
@@ -40,22 +40,15 @@ class ArticleRetriever
             return;
         }
 
-        foreach($domNode->childNodes as $childDomNode) {
-
+        foreach ($domNode->childNodes as $childDomNode) {
             if (trim($childDomNode->nodeValue)) {
-
                 if ($childDomNode->nodeName == 'p') {
-
                     $article->addPart(new Paragraph($childDomNode->nodeValue));
-    
                 } elseif (strlen($childDomNode->nodeName) == 2 && substr($childDomNode->nodeName, 0, 1) == 'h' && is_numeric(substr($childDomNode->nodeName, 1, 1))) {
-                    
                     $heading = new Heading($childDomNode->nodeValue);
                     $heading->setLevel(substr($childDomNode->nodeName, 1, 1));
                     $article->addPart($heading);
-                    
                 }
-               
             }
 
             if ($domNode->hasChildNodes()) {

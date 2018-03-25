@@ -2,8 +2,8 @@
 
 namespace DivineOmega\WebArticleFormatter\ArticleParts;
 
-use DivineOmega\WebArticleFormatter\Interfaces\ArticlePartInterface;
 use DivineOmega\WebArticleFormatter\Format;
+use DivineOmega\WebArticleFormatter\Interfaces\ArticlePartInterface;
 
 class Heading implements ArticlePartInterface
 {
@@ -22,7 +22,7 @@ class Heading implements ArticlePartInterface
 
     public function format($format)
     {
-        switch($format) {
+        switch ($format) {
 
             case Format::MARKDOWN:
                 return str_repeat('#', $this->level).' '.$this->content.PHP_EOL.PHP_EOL;
@@ -31,7 +31,7 @@ class Heading implements ArticlePartInterface
             case Format::PLAINTEXT:
                 return $this->content.PHP_EOL.PHP_EOL;
                 break;
-            
+
             case Format::HTML:
                 return '<h'.$this->level.'>'.htmlentities($this->content).'</h'.$this->level.'>'.PHP_EOL;
                 break;
