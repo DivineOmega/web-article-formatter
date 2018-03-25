@@ -11,7 +11,7 @@ composer require divineomega/web-article-formatter
 ```php
 $webArticleFormatter = new WebArticleFormatter($url);
 
-var_dump($webArticleFormatter->plainText());
-var_dump($webArticleFormatter->markdown());
-var_dump($webArticleFormatter->html());
+$webArticleFormatter->get(Format::PLAINTEXT);
+$webArticleFormatter->get(Format::MARKDOWN);
+$webArticleFormatter->get(Format::HTML);
 ```

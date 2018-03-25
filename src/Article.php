@@ -14,4 +14,15 @@ class Article
     {
         $this->parts[] = $part;
     }
+
+    public function format($format)
+    {
+        $output = '';
+
+        foreach($this->parts as $part) {
+            $output .= $part->format($format);
+        }
+
+        return trim($output);
+    }
 }
