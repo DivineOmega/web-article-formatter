@@ -9,12 +9,12 @@ composer require divineomega/web-article-formatter
 ## Usage
 
 ```php
-$webArticleFormatter = new WebArticleFormatter($url);
+$formatter = new WebArticleFormatter($url);
 
-$webArticleFormatter->get(Format::PLAINTEXT);
-$webArticleFormatter->get(Format::MARKDOWN);
-$webArticleFormatter->get(Format::HTML);
+echo $formatter->get(Format::PLAINTEXT);
+echo $formatter->get(Format::MARKDOWN);
+echo $formatter->get(Format::HTML);
 
-file_put_contents('article.pdf', $webArticleFormatter->get(Format::PDF));
+file_put_contents('article.pdf', $formatter->get(Format::PDF));
 
 ```
