@@ -16,8 +16,12 @@ class Article
 
     public function format($format)
     {
-        if ($format == Format::PDF) {
-            return $this->formatPDF();
+        switch ($format) {
+            case Format::PDF:
+                return $this->formatPDF();
+
+            case Format::JSON:
+                return $this->formatJSON();
         }
 
         $output = '';
@@ -36,5 +40,18 @@ class Article
         $dompdf->render();
 
         return $dompdf->output();
+    }
+
+    private function formatJSON()
+    {
+        $jsonObjs = [];
+
+        foreach ($this->parts as $part) {
+            $jsonObj = $part;
+            $jsonObj->type = (new \ReflectionClass($part))->getShortName();
+            $jsonObjs[] = $jsonObj;
+        }
+
+        return json_encode($jsonObjs, JSON_PRETTY_PRINT);
     }
 }

@@ -8,4 +8,5 @@ class Format
     const HTML = 'html';
     const PLAINTEXT = 'plaintext';
     const PDF = 'pdf';
+    const JSON = 'json';
 }
