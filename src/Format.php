@@ -2,7 +2,7 @@
 
 namespace DivineOmega\WebArticleFormatter;
 
-class Format
+abstract class Format
 {
     const MARKDOWN = 'markdown';
     const HTML = 'html';
