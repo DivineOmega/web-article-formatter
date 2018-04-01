@@ -4,11 +4,18 @@
 
 ## Installation
 
+You can install Web Article Formatter via Composer. Just run the following command.
+
 ```
 composer require divineomega/web-article-formatter
 ```
 
 ## Usage
+
+To retrieve a web page article and convert it into a different format, first create a new `WebArticleFormatter`
+passing it the URL of the web page. Then, simply call the formatter's `get` method, passing it a valid format constant.
+
+A list of all format constants can be found in the [`Format` class](src/Format.php).
 
 ```php
 $formatter = new WebArticleFormatter($url);
