@@ -1,4 +1,4 @@
-# Web Article Formatter
+# 🌐🔀📰 Web Article Formatter
 
 [![StyleCI](https://styleci.io/repos/126647242/shield?branch=master)](https://styleci.io/repos/126647242)
 
